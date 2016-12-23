@@ -10,5 +10,5 @@ RUN curl --progress-bar --location\
     rm /tmp/datomic.zip
 RUN mkdir -p /etc/datomic
 COPY transactor.properties /etc/datomic
-CMD /usr/local/datomic/bin/transactor /etc/datomic/transactor.properties
+CMD /usr/local/datomic/bin/transactor -Xms384m -Xmx384m /etc/datomic/transactor.properties
 EXPOSE 4334
