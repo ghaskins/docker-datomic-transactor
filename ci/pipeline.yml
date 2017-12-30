@@ -1,0 +1,20 @@
+resources:
+- name: input
+  type: git
+  source:
+    url: https://github.com/ghaskins/docker-datomic-transactor.git
+    branch: concourse
+
+- name: output
+  type: docker-image
+  source:
+    repository: ghaskins/datomic-transactor
+    username: username
+    password: password
+
+jobs:
+- name: build-container
+  plan:
+  - get: input
+    trigger: true
+  - put: output
